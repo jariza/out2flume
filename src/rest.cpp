@@ -21,23 +21,17 @@ size_t curlcb(void *ptr, size_t size, size_t nmemb, void *data) {
  * @param msg Message received
  */
 void logCallback(const rosgraph_msgs::Log::ConstPtr& msg) {
-    char hostname[1024];
     std::stringstream jsonmsg;
     std::string jsonstr;
     CURL *curlh;
     CURLcode curlstatus;
     long http_code;
 
-    //Get system hostname
-    hostname[1023] = '\0';
-    gethostname(hostname, 1023);
-
     //Create JSON message
     jsonmsg << "[{";
     jsonmsg << "\"headers\":{";
     jsonmsg << "\"timestamp\":" << msg->header.stamp.sec << std::fixed << std::setprecision(0) << (msg->header.stamp.nsec/1E6) << ",";
     jsonmsg << "\"exacttime\":" << msg->header.stamp.sec << "." << msg->header.stamp.nsec << ",";
-    jsonmsg << "\"host\":\"" << hostname << "\",";
     jsonmsg << "\"level\":" << (int)msg->level << ",";
     jsonmsg << "\"node\":\"" << msg->name << "\",";
     jsonmsg << "\"file\":\"" << msg->file << "\",";

@@ -2,7 +2,7 @@
 <package>
   <name>out2flume</name>
   <version>0.1.0</version>
-  <description>Sends /routout_agg to Apache Flume via several ways</description>
+  <description>Sends /routout_agg to Apache Flume via REST</description>
   <maintainer email="jjaime@ikergune.com">José Jaime Ariza</maintainer>
   <license>MIT</license>
   <author email="jjaime@ikergune.com">José Jaime Ariza</author>

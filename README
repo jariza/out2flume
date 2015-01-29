@@ -1,0 +1,19 @@
+== DEPENDENCIES ==
+- libcurl4. Tested with the OpenSSL and GNUTLS versions.
+
+== USAGE ==
+rosrun out2flume rest _resturl:=<resturl>
+
+<resturl> is the URL where the JSONs should be sent. Depends on the Flume configuration.
+
+== MESSAGE FORMAT ==
+- headers
+-- timestamp, timestamp with milliseconds precision.
+-- exacttime, timestamp with nanosecs precisition (from stamp in the header of the ROS message).
+-- level, as specified in rosgraph_msgs/Log documentation.
+-- node, name field from rosgraph_msgs/Log documentation.
+-- file, as specified in rosgraph_msgs/Log documentation.
+-- function, as specified in rosgraph_msgs/Log documentation.
+-- line, as specified in rosgraph_msgs/Log documentation.
+- body, msg field from rosgraph_msgs/Log documentation.
+
